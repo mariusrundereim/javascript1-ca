@@ -7,7 +7,6 @@ async function countryApi() {
     const data = await response.json();
 
     console.log(data);
-    console.log(data[4].name.common);
 
     /*
     for (let i = 0; i < data.length; i++) {
@@ -16,11 +15,13 @@ async function countryApi() {
     }
     */
 
+    /*
     data.forEach((country) => {
       console.log(country.name.common);
     });
+    */
 
-    // countryName.forEach((countries) => listCommon(countries));
+    getInfo(data);
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
@@ -28,13 +29,26 @@ async function countryApi() {
 }
 countryApi();
 
-/*
+function getInfo(data) {
+  data.forEach((country) => {
+    //console.log(country.name.common);
+    //console.log(country.flags.png);
+    //console.log(country.capital);
+    const container = document.createElement("div");
+    container.classList.add("card-prop");
+    const countryLink = document.createElement("a");
+    const heading = document.createElement("h2");
+    const countryFlag = document.createElement("img");
+    const countryCapital = document.createElement("h3");
+    //
+    heading.textContent = country.name.common;
+    countryLink.href = `details.html?=${country.name}`;
+    countryLink.textContent = `Link`;
+    countryFlag.src = `${country.flags.png}`;
+    countryCapital.textContent = `${country.capital}`;
+    //
+    container.append(heading, countryFlag, countryCapital, countryLink);
 
-function get(id) {
-  const arr = ["norge", "sverige", "danmark"];
-  return arr[id];
+    document.querySelector(".container").append(container);
+  });
 }
-
-let myCountry = get(2);
-
-*/
