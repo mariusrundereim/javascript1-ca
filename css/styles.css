@@ -38,7 +38,7 @@ body {
 /* Layout */
 
 .wrapper {
-  width: min(100% - 1rem, 80rem);
+  width: min(100% - 1rem, 110rem);
   margin-inline: auto;
 }
 

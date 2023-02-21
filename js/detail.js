@@ -11,17 +11,9 @@ async function countryApi() {
     const data = await response.json();
 
     console.log(data);
-
-    getInfo(data);
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
   }
 }
 countryApi();
-
-function getInfo(data) {
-  data.forEach((country) => {
-    console.log(country.name.common);
-  });
-}
