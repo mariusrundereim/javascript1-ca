@@ -3,7 +3,7 @@
 }
 
 body {
-  background: white;
+  background: rgb(201, 201, 201);
   font-family: "Hanken Grotesk", sans-serif;
 }
 
@@ -51,9 +51,16 @@ body {
 /* Card */
 
 .card-prop {
+  background: white;
   border: 1px solid black;
   padding: 1rem;
   border-radius: 5px;
+  /**/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
 }
 
 /* Search */
@@ -73,4 +80,10 @@ body {
 .country-head-container {
   display: flex;
   justify-content: space-between;
+}
+
+.header-prop {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1rem;
 }

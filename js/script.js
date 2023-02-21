@@ -8,19 +8,6 @@ async function countryApi() {
 
     console.log(data);
 
-    /*
-    for (let i = 0; i < data.length; i++) {
-      console.log(data[i].name.common);
-      console.log("Land is in:", data[i].continents[0]);
-    }
-    */
-
-    /*
-    data.forEach((country) => {
-      console.log(country.name.common);
-    });
-    */
-
     getInfo(data);
   } catch (error) {
     console.log("This is:", error);
@@ -50,5 +37,6 @@ function getInfo(data) {
     container.append(heading, countryFlag, countryCapital, countryLink);
 
     document.querySelector(".container").append(container);
+    console.log(countryLink.href);
   });
 }
