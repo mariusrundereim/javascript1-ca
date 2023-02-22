@@ -101,19 +101,43 @@ body {
 .card-link {
   text-decoration: none;
   color: black;
+  background: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.4rem 0.8rem;
+  transition: 300ms ease;
 }
 
 .card-link:hover {
-  color: red;
+  color: white;
+  background: lightslategray;
 }
 
 /* Loader */
 
+.loader-wrapper {
+  text-align: center;
+}
+
 .loading {
-  width: 70px;
-  height: 70px;
-  border-radius: 20px;
-  outline: 3px solid black;
+  font-size: 4.5rem;
+  animation: loadingspinner 3s infinite;
+}
+
+@keyframes loadingspinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .show {

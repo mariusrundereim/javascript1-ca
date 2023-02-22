@@ -3,17 +3,22 @@ let all = "all";
 let findCountry = "";
 let region = "europe";
 
+const loader = document.querySelector(".loading");
+
 const searchCountry = document.querySelector(".search-name");
 const buttonName = document.querySelector(".button-name");
 
 // Call ALL Countries
 async function countryApi() {
   try {
+    loader.classList.add("show");
     const response = await fetch(`https://restcountries.com/v3.1/${all}`); //https://restcountries.com/v3.1/
     const data = await response.json();
     //console.log(data);
 
     getInfo(data);
+    //loader.classList.remove("show");
+    loader.classList.add("hidden");
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
