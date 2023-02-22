@@ -180,3 +180,20 @@ body {
   background: lightblue;
   padding: 1rem;
 }
+
+/* Details */
+
+.details-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.detail-flag-img {
+  width: min(100% - 1rem, 20rem);
+}
