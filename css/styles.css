@@ -52,6 +52,12 @@ body {
   margin-top: 1rem;
 }
 
+.grid-col-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
 /* Card */
 
 .card-prop {
