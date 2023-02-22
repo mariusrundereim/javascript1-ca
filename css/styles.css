@@ -10,7 +10,7 @@ body {
 /* Header */
 
 .top-header {
-  background: lightblue;
+  background: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,8 +18,10 @@ body {
 }
 
 .page-title {
-  color: black;
+  color: rgb(255, 45, 73);
   text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 /* Navigation */
@@ -38,21 +40,23 @@ body {
 /* Layout */
 
 .wrapper {
-  width: min(100% - 1rem, 110rem);
+  width: min(100% - 1rem, 80rem);
   margin-inline: auto;
+  margin-top: 3rem;
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 /* Card */
 
 .card-prop {
   background: white;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.4);
   padding: 1rem;
   border-radius: 5px;
   /**/
@@ -66,15 +70,15 @@ body {
 /* Search */
 
 .search-container {
-  display: none;
+  display: block;
   min-height: 10rem;
   background: lightslategray;
 }
 
 .search-wrapper {
-  display: grid;
-
-  place-content: center;
+  width: min(100% - 1rem, 110rem);
+  margin-inline: auto;
+  padding: 2rem;
 }
 
 .country-head-container {

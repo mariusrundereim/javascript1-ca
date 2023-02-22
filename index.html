@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Country API</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/mediaquery.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,21 +33,32 @@
     </header>
     <section class="search-container">
       <div class="search-wrapper">
-        <label for="search-country">Country name:</label>
-        <input type="text" class="search-country" />
-        <label for="capital">Capital:</label>
-        <input type="text" class="capital" />
-        <button type="submit">Search</button>
+        <div>
+          <label for="search-country">Country name:</label>
+          <input type="text" class="search-country" />
+          <button class="button-name" type="submit">Search</button>
+        </div>
+        <div>
+          <label for="continent">Continents:</label>
+          <select id="continent">
+            <option value="">Select a continent</option>
+            <option value="europe">Europe</option>
+            <option value="asia">Asia</option>
+            <option value="africa">Africa</option>
+          </select>
+          <button class="button-con" id="continent" type="submit">
+            Search
+          </button>
+        </div>
+        <div>
+          <label for="population">Population:</label>
+          <input type="number" name="population" class="search-con" />
+          <button type="submit">Search</button>
+        </div>
       </div>
     </section>
     <main class="wrapper">
-      <header class="country-head-container header-prop">
-        <div class="header-col-1">Countries:</div>
-        <div class="header-col-2">
-          <i class="fa-solid fa-bars"></i>
-          <i class="fa-solid fa-arrow-up-a-z"></i>
-        </div>
-      </header>
+      <h2>Countries:</h2>
       <section class="container"></section>
     </main>
   </body>
