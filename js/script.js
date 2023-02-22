@@ -29,11 +29,13 @@ async function countryApi() {
 
 async function getCountryByName() {
   try {
+    loader.classList.add("show");
     const response = await fetch(
       `https://restcountries.com/v3.1/name/${findCountry}`
     );
     const data = await response.json();
     console.log(data);
+    loader.classList.remove("show");
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
@@ -49,6 +51,7 @@ buttonName.addEventListener("click", () => {
 // Call Countries By Contintents
 async function getCountriesByContinent() {
   try {
+    loader.classList.add("show");
     const response = await fetch(
       `https://restcountries.com/v3.1/region/${region}`
     );

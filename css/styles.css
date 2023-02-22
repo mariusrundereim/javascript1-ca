@@ -1,9 +1,10 @@
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: rgb(201, 201, 201);
+  background: rgb(99, 118, 115);
   font-family: "Hanken Grotesk", sans-serif;
 }
 
@@ -65,12 +66,20 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.4);
   padding: 1rem;
   border-radius: 5px;
+  border-bottom: 5px solid transparent;
   /**/
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   gap: 1rem;
+  /**/
+  transition: 300ms ease;
+}
+
+.card-prop:hover {
+  background: rgb(208, 208, 208);
+  border-bottom: 5px solid rgb(102, 120, 140);
 }
 
 /* Search */
@@ -78,7 +87,7 @@ body {
 .search-container {
   display: block;
   min-height: 10rem;
-  background: lightslategray;
+  background: rgb(113, 144, 139);
 }
 
 .search-wrapper {
@@ -120,6 +129,7 @@ body {
 }
 
 .loading {
+  color: white;
   font-size: 4.5rem;
   animation: loadingspinner 3s infinite;
 }
