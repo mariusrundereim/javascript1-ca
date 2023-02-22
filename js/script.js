@@ -2,14 +2,16 @@ let all = "all";
 
 let findCountry = "";
 let region = "europe";
-const loader = document.querySelector(".loading");
+
+const searchCountry = document.querySelector(".search-name");
+const buttonName = document.querySelector(".button-name");
 
 // Call ALL Countries
 async function countryApi() {
   try {
     const response = await fetch(`https://restcountries.com/v3.1/${all}`); //https://restcountries.com/v3.1/
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
 
     getInfo(data);
   } catch (error) {
@@ -18,7 +20,7 @@ async function countryApi() {
   }
 }
 
-// Call Continents
+// Call Continents by Name
 
 async function getCountryByName() {
   try {
@@ -27,22 +29,11 @@ async function getCountryByName() {
     );
     const data = await response.json();
     console.log(data);
-
-    // byContinents(data);
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
   }
 }
-
-// Call Countries By Contintents
-async function getCountriesByContinent() {
-  const response = await fetch(
-    `https://restcountries.com/v3.1/region/${region}`
-  );
-}
-const searchCountry = document.querySelector(".search-country");
-const buttonName = document.querySelector(".button-name");
 
 buttonName.addEventListener("click", () => {
   findCountry = searchCountry.value;
@@ -50,12 +41,22 @@ buttonName.addEventListener("click", () => {
   getCountryByName();
 });
 
+// Call Countries By Contintents
+async function getCountriesByContinent() {
+  try {
+    const response = await fetch(
+      `https://restcountries.com/v3.1/region/${region}`
+    );
+    const data = await response.json();
+    //console.log(data);
+  } catch (error) {
+    console.log("This is:", error);
+    document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
+  }
+}
+
 function getInfo(data) {
   data.forEach((country) => {
-    //console.log(country.name.common);
-    //console.log(country.flags.png);
-    //console.log(country.capital);
-
     const container = document.createElement("div");
     container.classList.add("card-prop");
     const countryLink = document.createElement("a");
@@ -75,10 +76,7 @@ function getInfo(data) {
   });
 }
 
-function byContinents(data) {
-  for (let i = 0; i < data.length; i++) {
-    //console.log(data[i].continents[0]);
-  }
-}
 countryApi();
+getCountryByName();
+getCountriesByContinent();
 //getCountryByName();

@@ -25,8 +25,8 @@ function getDetails(data) {
     return (document.querySelector(".detail-section").innerHTML += `
     <div><h2>${country.name.common}</h2>
     <img src="${country.flags.png}"></img>
-    <p>${country.car.side}</p>
-    <p>${country.population}</p>`);
+    <p>Car on ${country.car.side} side</p>
+    <p>Population: ${country.population}</p>`);
     console.log(country.name.common);
     console.log(country.flags.png);
     console.log(country.car.side);
