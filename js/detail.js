@@ -3,7 +3,7 @@ const params = new URLSearchParams(queryString); // {"name": "Iceland", "id":"10
 const countryName = params.get("name"); //countryname = "Iceland"
 
 const url = `https://restcountries.com/v3.1/name/${countryName}`;
-console.log(url);
+//console.log(url);
 
 async function detailCountry() {
   try {
@@ -21,6 +21,15 @@ async function detailCountry() {
 detailCountry();
 
 function getDetails(data) {
-  const countryName = data[0].name.common;
-  console.log(data[0].name.common);
+  data.forEach((country) => {
+    return (document.querySelector(".detail-section").innerHTML += `
+    <div><h2>${country.name.common}</h2>
+    <img src="${country.flags.png}"></img>
+    <p>${country.car.side}</p>
+    <p>${country.population}</p>`);
+    console.log(country.name.common);
+    console.log(country.flags.png);
+    console.log(country.car.side);
+    console.log(country.population);
+  });
 }

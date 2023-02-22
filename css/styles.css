@@ -106,3 +106,24 @@ body {
 .card-link:hover {
   color: red;
 }
+
+/* Loader */
+
+.loading {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  outline: 3px solid black;
+}
+
+.show {
+  visibility: visible;
+}
+
+/* Icons */
+
+.fa-car,
+.fa-person,
+.fa-wallet {
+  font-size: 2.5rem;
+}

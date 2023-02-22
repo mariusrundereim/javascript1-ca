@@ -2,6 +2,8 @@ let all = "all";
 
 let findCountry = "";
 
+const loader = document.querySelector(".loading");
+
 // Call ALL Countries
 async function countryApi() {
   try {
@@ -15,7 +17,6 @@ async function countryApi() {
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
   }
 }
-countryApi();
 
 // Call Continents
 async function countryCon() {
@@ -32,7 +33,6 @@ async function countryCon() {
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
   }
 }
-countryCon();
 
 const searchCountry = document.querySelector(".search-country");
 const buttonName = document.querySelector(".button-name");
@@ -45,7 +45,7 @@ buttonName.addEventListener("click", () => {
 
 function getInfo(data) {
   data.forEach((country) => {
-    console.log(country.name.common);
+    //console.log(country.name.common);
     //console.log(country.flags.png);
     //console.log(country.capital);
 
@@ -74,3 +74,5 @@ function byContinents(data) {
     //console.log(data[i].continents[0]);
   }
 }
+countryApi();
+countryCon();
