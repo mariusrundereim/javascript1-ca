@@ -91,3 +91,12 @@ body {
   border-radius: 5px;
   padding: 1rem;
 }
+
+.card-link {
+  text-decoration: none;
+  color: black;
+}
+
+.card-link:hover {
+  color: red;
+}
