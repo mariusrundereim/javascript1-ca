@@ -1,7 +1,8 @@
 const fullName = document.querySelector("#full-name");
 const subject = document.querySelector("#subject");
 const email = document.querySelector("#email");
-const submitButton = document.querySelector("#btn-submit");
+const address = document.querySelector("#address");
+const submitButton = document.querySelector(".btn-submit");
 const form = document.querySelector("form");
 const users = document.querySelector(".users");
 
@@ -21,17 +22,19 @@ function createUser(user) {
   const heading = document.createElement("h2");
   const emailPara = document.createElement("p");
   const subjectPara = document.createElement("p");
+  const addressPara = document.createElement("p");
   //
   heading.textContent = user.name;
   subjectPara.textContent = user.subject;
   emailPara.textContent = user.email;
+  addressPara.textContent = user.address;
   //
-  element.append(heading, subjectPara, emailPara);
+  element.append(heading, subjectPara, emailPara, addressPara);
   users.append(element);
 }
 
 document.addEventListener("keyup", (event) => {
-  if (nameCheck() && emailCheck()) {
+  if (nameCheck() && subjectCheck() && emailCheck() && addressCheck()) {
     console.log("all fields have a value");
     submitButton.disabled = false;
   } else {
@@ -42,6 +45,16 @@ document.addEventListener("keyup", (event) => {
 function nameCheck() {
   const testRegEx = /^[a-z0-9_-]{10,20}$/;
   return testRegEx.test(fullName.value);
+}
+
+function subjectCheck() {
+  const testRegEx = /^[a-zA-Z0-9 ]*$/;
+  return testRegEx.test(subject.value);
+}
+
+function addressCheck() {
+  const testRegEx = /^[a-zA-Z0-9 ]*$/;
+  return testRegEx.test(address.value);
 }
 
 function emailCheck() {
