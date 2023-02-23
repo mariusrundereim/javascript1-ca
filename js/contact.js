@@ -7,6 +7,8 @@ const form = document.querySelector("form");
 const users = document.querySelector(".users");
 
 const messageContainer = document.querySelector(".message-container");
+const message = createMessage();
+messageContainer.innerHTML = message;
 
 form.addEventListener("submit", (event) => {
   const user = {
@@ -19,10 +21,9 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 });
 
-function createMessage() {
-  if (fullName.value.length === 0) {
-    console.log("Name required");
-  }
+function createMessage(type = "success", message = "No message") {
+  const html = `<div class="message ${type}">${message}</div>`;
+  return html;
 }
 
 function createUser(user) {
