@@ -15,8 +15,9 @@ async function countryApi() {
     //console.log(data);
 
     getAll(data);
-    //loader.classList.remove("show");
-    loader.classList.add("hidden");
+    setTimeout(() => {
+      loader.classList.remove("show");
+    }, 3000);
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
@@ -44,6 +45,26 @@ function getAll(data) {
   });
 }
 
+function setSingleCountry(country) {
+  document.querySelector(".container").innerHTML = "";
+  const container = document.createElement("div");
+  container.classList.add("card-prop");
+  const countryLink = document.createElement("a");
+  countryLink.classList.add("card-link");
+  const heading = document.createElement("h2");
+  const countryFlag = document.createElement("img");
+  const countryCapital = document.createElement("h3");
+  //
+  heading.textContent = country.name.common;
+  countryLink.href = `details.html?name=${country.name.common}`;
+  countryLink.textContent = `More details`;
+  countryFlag.src = `${country.flags.png}`;
+  countryCapital.textContent = `${country.capital}`;
+  //
+  container.append(heading, countryFlag, countryCapital, countryLink);
+  document.querySelector(".container").append(container);
+}
+
 // Call Continents by Name
 
 async function getCountryByName() {
@@ -55,6 +76,7 @@ async function getCountryByName() {
     const data = await response.json();
     console.log(data);
 
+    setSingleCountry(data[0]);
     loader.classList.remove("show");
   } catch (error) {
     console.log("This is:", error);
@@ -70,7 +92,7 @@ async function getCountriesByContinent() {
       `https://restcountries.com/v3.1/region/${region}`
     );
     const data = await response.json();
-    //console.log(data);
+    console.log(data);
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
@@ -78,7 +100,13 @@ async function getCountriesByContinent() {
 }
 
 countryApi();
-getCountryByName();
-
-getCountriesByContinent();
 //getCountryByName();
+
+//getCountriesByContinent();
+//getCountryByName();
+
+buttonName.addEventListener("click", () => {
+  findCountry = searchCountry.value;
+
+  getCountryByName();
+});

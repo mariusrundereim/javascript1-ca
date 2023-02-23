@@ -54,10 +54,10 @@ document.addEventListener("keyup", (event) => {
 
 function nameCheck() {
   const testRegEx = /^[a-zA-Z0-9 ]*$/;
-  if (fullName.value.length == 0) {
-    console.log("failed");
-    return false;
-  }
+  // if (fullName.value.length == 0) {
+  //   console.log("failed");
+  //   return false;
+  // }
   return testRegEx.test(fullName.value);
 }
 
