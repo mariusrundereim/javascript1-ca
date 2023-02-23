@@ -2,18 +2,24 @@ const queryString = document.location.search; // querystring = ?name=Iceland&id=
 const params = new URLSearchParams(queryString); // {"name": "Iceland", "id":"10"}
 const countryName = params.get("name"); //countryname = "Iceland"
 
+const loader = document.querySelector(".loading");
+
 const url = `https://restcountries.com/v3.1/name/${countryName}`;
 //console.log(url);
 
 async function detailCountry() {
   try {
+    loader.classList.add("show");
     const response = await fetch(url);
     const data = await response.json();
+
     console.log(data);
     getDetails(data);
+
     //getTranslations(data);
     const changeTitle = data[0].name.common;
     document.title = `Details - ${changeTitle}`;
+    loader.classList.remove("show");
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;

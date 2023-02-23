@@ -85,15 +85,9 @@ body {
 /* Search */
 
 .search-container {
-  display: block;
   min-height: 10rem;
-  background: rgb(113, 144, 139);
-}
-
-.search-wrapper {
-  width: min(100% - 1rem, 110rem);
-  margin-inline: auto;
   padding: 2rem;
+  background: rgb(113, 144, 139);
 }
 
 .country-head-container {
@@ -196,4 +190,31 @@ body {
 
 .detail-flag-img {
   width: min(100% - 1rem, 20rem);
+}
+
+/* Handling errors */
+
+.message {
+  padding: 1rem;
+  color: gray;
+  border: 1px solid gray;
+}
+
+.success {
+  color: black;
+  border-color: green;
+  background: rgba(50, 205, 50, 0.3);
+  border-radius: 8px;
+}
+
+.error {
+  color: red;
+  border-color: brown;
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.warning {
+  color: orange;
+  border-color: darkorange;
+  background: rgba(255, 166, 0, 0.3);
 }

@@ -1,10 +1,8 @@
 let all = "all";
-
 let findCountry = "";
 let region = "europe";
 
 const loader = document.querySelector(".loading");
-
 const searchCountry = document.querySelector(".search-name");
 const buttonName = document.querySelector(".button-name");
 
@@ -16,7 +14,7 @@ async function countryApi() {
     const data = await response.json();
     //console.log(data);
 
-    getInfo(data);
+    getAll(data);
     //loader.classList.remove("show");
     loader.classList.add("hidden");
   } catch (error) {
@@ -25,45 +23,7 @@ async function countryApi() {
   }
 }
 
-// Call Continents by Name
-
-async function getCountryByName() {
-  try {
-    loader.classList.add("show");
-    const response = await fetch(
-      `https://restcountries.com/v3.1/name/${findCountry}`
-    );
-    const data = await response.json();
-    console.log(data);
-    loader.classList.remove("show");
-  } catch (error) {
-    console.log("This is:", error);
-    document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
-  }
-}
-
-buttonName.addEventListener("click", () => {
-  findCountry = searchCountry.value;
-  console.log("Click", findCountry);
-  getCountryByName();
-});
-
-// Call Countries By Contintents
-async function getCountriesByContinent() {
-  try {
-    loader.classList.add("show");
-    const response = await fetch(
-      `https://restcountries.com/v3.1/region/${region}`
-    );
-    const data = await response.json();
-    //console.log(data);
-  } catch (error) {
-    console.log("This is:", error);
-    document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
-  }
-}
-
-function getInfo(data) {
+function getAll(data) {
   data.forEach((country) => {
     const container = document.createElement("div");
     container.classList.add("card-prop");
@@ -84,7 +44,41 @@ function getInfo(data) {
   });
 }
 
+// Call Continents by Name
+
+async function getCountryByName() {
+  try {
+    loader.classList.add("show");
+    const response = await fetch(
+      `https://restcountries.com/v3.1/name/${findCountry}`
+    );
+    const data = await response.json();
+    console.log(data);
+
+    loader.classList.remove("show");
+  } catch (error) {
+    console.log("This is:", error);
+    document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
+  }
+}
+
+// Call Countries By Contintents
+async function getCountriesByContinent() {
+  try {
+    loader.classList.add("show");
+    const response = await fetch(
+      `https://restcountries.com/v3.1/region/${region}`
+    );
+    const data = await response.json();
+    //console.log(data);
+  } catch (error) {
+    console.log("This is:", error);
+    document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
+  }
+}
+
 countryApi();
 getCountryByName();
+
 getCountriesByContinent();
 //getCountryByName();
