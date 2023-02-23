@@ -96,7 +96,7 @@ body {
   border-bottom: 5px solid rgb(102, 120, 140);
 }
 
-/* Search */
+/* Search Countries */
 
 .search-container {
   min-height: 10rem;
@@ -164,10 +164,21 @@ body {
 
 /* Icons */
 
-.fa-car,
-.fa-person,
-.fa-wallet {
+.fa-arrow-up-a-z {
   font-size: 2.5rem;
+}
+
+/* Sort section */
+
+.sort-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 /* Contact Form */

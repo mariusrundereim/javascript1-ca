@@ -20,11 +20,11 @@ form.addEventListener("submit", (event) => {
 function check() {
   if (name.value) {
     console.log("navn finnes");
-    messageContainer.innerHTML += createMessage("success", "Good!");
+    messageContainer.innerHTML += createMessage("success", "Name is Good!");
   } else {
     messageContainer.innerHTML += createMessage(
       "warning",
-      "my message message"
+      "Please, fill out a name!"
     );
     console.log("navn finnes ikke");
   }
@@ -32,25 +32,17 @@ function check() {
   if (subject.value.length < 4) {
     messageContainer.innerHTML += createMessage(
       "warning",
-      "my message message"
+      "Fill out a subject, Chuck Norris!"
     );
     console.log("Lengde:", subject.value.length, false);
   } else {
-    messageContainer.innerHTML += createMessage("success", "Good!");
+    messageContainer.innerHTML += createMessage(
+      "success",
+      "You are soooo Good!"
+    );
     console.log("Lengde:", subject.value.length, true);
   }
   console.log(address.value.length);
-
-  if (address.value.length < 25) {
-    messageContainer.innerHTML += createMessage(
-      "warning",
-      "my message message"
-    );
-    console.log("Lengde:", address.value.length, false);
-  } else {
-    messageContainer.innerHTML += createMessage("success", "Good!");
-    console.log("Lengde:", address.value.length, true);
-  }
 
   if (email.value) {
     const regEx = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
@@ -60,7 +52,18 @@ function check() {
     console.log("Not valid!");
     messageContainer.innerHTML += createMessage(
       "warning",
-      "my message message"
+      "Please fill out a valid e-mail!"
     );
+
+    if (address.value.length < 25) {
+      messageContainer.innerHTML += createMessage("warning", "Fill in address");
+      console.log("Lengde:", address.value.length, false);
+    } else {
+      messageContainer.innerHTML += createMessage(
+        "success",
+        "Good! Address is success"
+      );
+      console.log("Lengde:", address.value.length, true);
+    }
   }
 }
