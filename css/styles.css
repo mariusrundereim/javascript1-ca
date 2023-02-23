@@ -171,8 +171,11 @@ body {
 }
 
 .user-card {
+  width: min(100% - 5rem, 30rem);
+  margin-inline: auto;
   background: lightblue;
   padding: 1rem;
+  border-radius: 5px;
 }
 
 /* Details */

@@ -6,6 +6,8 @@ const submitButton = document.querySelector(".btn-submit");
 const form = document.querySelector("form");
 const users = document.querySelector(".users");
 
+const messageContainer = document.querySelector(".message-container");
+
 form.addEventListener("submit", (event) => {
   const user = {
     name: fullName.value,
@@ -13,8 +15,15 @@ form.addEventListener("submit", (event) => {
     email: email.value,
   };
   createUser(user);
+  createMessage();
   event.preventDefault();
 });
+
+function createMessage() {
+  if (fullName.value.length === 0) {
+    console.log("Name required");
+  }
+}
 
 function createUser(user) {
   const element = document.createElement("div");
@@ -43,18 +52,13 @@ document.addEventListener("keyup", (event) => {
 });
 
 function nameCheck() {
-  const testRegEx = /^[a-z0-9_-]{10,20}$/;
-  console.log(fullName.value.length);
-  if (fullName.value.length > 10) {
-    console.log("Length is:", true);
-    return testRegEx.test(fullName.value);
-  }
+  const testRegEx = /^[a-zA-Z0-9 ]*$/;
+  return testRegEx.test(fullName.value);
 }
 
 function subjectCheck() {
   const testRegEx = /^[a-zA-Z0-9 ]*$/;
   if (subject.value.length > 10) {
-    console.log("Length is:", true);
     return testRegEx.test(subject.value);
   }
 }
