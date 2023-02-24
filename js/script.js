@@ -10,8 +10,6 @@ const buttonContinents = document.querySelector(".button-con");
 
 const sortIcon = document.querySelector(".sort-icon");
 
-console.log(sortIcon);
-
 // Call ALL Countries
 async function countryApi() {
   document.querySelector(".container").innerHTML = "";
@@ -138,13 +136,22 @@ countryApi();
 buttonName.addEventListener("click", () => {
   findCountry = searchCountry.value;
 
-  getCountryByName();
+  if (searchCountry.value.length === 0) {
+    return false;
+  }
+  if (searchCountry.value === !name.common) getCountryByName();
 });
 
 buttonContinents.addEventListener("click", () => {
   region = byContinents.value;
+
   console.log(region);
   getCountriesByContinent();
+});
+
+sortIcon.addEventListener("click", () => {
+  console.log("Clicked");
+  countryApiSorted();
 });
 
 //sorting of countries
@@ -174,6 +181,7 @@ async function countryApiSorted() {
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
   }
 }
+
 //sorted reverse
 async function countryApiReverse() {
   document.querySelector(".container").innerHTML = "";
