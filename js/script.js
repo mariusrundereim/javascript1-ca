@@ -1,10 +1,12 @@
 let all = "all";
 let findCountry = "";
-let region = "europe";
+let region = "";
 
 const loader = document.querySelector(".loading");
 const searchCountry = document.querySelector(".search-name");
 const buttonName = document.querySelector(".button-name");
+const byContinents = document.querySelector("#continent");
+const buttonContinents = document.querySelector(".button-con");
 
 const sortIcon = document.querySelector(".sort-icon");
 
@@ -21,7 +23,7 @@ async function countryApi() {
     getAll(data);
     setTimeout(() => {
       loader.classList.remove("show");
-    }, 3000);
+    }, 800);
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
@@ -98,10 +100,33 @@ async function getCountriesByContinent() {
     );
     const data = await response.json();
     console.log(data);
+    getRegions(data);
+    loader.classList.remove("show");
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
   }
+}
+
+function getRegions(data) {
+  data.forEach((country) => {
+    const container = document.createElement("div");
+    container.classList.add("card-prop");
+    const countryLink = document.createElement("a");
+    countryLink.classList.add("card-link");
+    const heading = document.createElement("h2");
+    const countryFlag = document.createElement("img");
+    const countryCapital = document.createElement("h3");
+    //
+    heading.textContent = country.name.common;
+    countryLink.href = `details.html?name=${country.name.common}`;
+    countryLink.textContent = `More details`;
+    countryFlag.src = `${country.flags.png}`;
+    countryCapital.textContent = `${country.capital}`;
+    //
+    container.append(heading, countryFlag, countryCapital, countryLink);
+    document.querySelector(".container").append(container);
+  });
 }
 
 countryApi();
@@ -114,6 +139,12 @@ buttonName.addEventListener("click", () => {
   findCountry = searchCountry.value;
 
   getCountryByName();
+});
+
+buttonContinents.addEventListener("click", () => {
+  region = byContinents.value;
+  console.log(region);
+  getCountriesByContinent();
 });
 
 //sorting of countries
