@@ -139,7 +139,8 @@ buttonName.addEventListener("click", () => {
   if (searchCountry.value.length === 0) {
     return false;
   }
-  if (searchCountry.value === !name.common) getCountryByName();
+
+  getCountryByName();
 });
 
 buttonContinents.addEventListener("click", () => {
