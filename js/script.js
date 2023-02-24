@@ -9,6 +9,7 @@ const byContinents = document.querySelector("#continent");
 const buttonContinents = document.querySelector(".button-con");
 
 const sortIcon = document.querySelector(".sort-icon");
+const sortIconDown = document.querySelector(".sort-icon-down");
 
 // Call ALL Countries
 async function countryApi() {
@@ -152,6 +153,10 @@ buttonContinents.addEventListener("click", () => {
 
 sortIcon.addEventListener("click", () => {
   countryApiSorted();
+});
+
+sortIconDown.addEventListener("click", () => {
+  countryApiReverse();
 });
 
 //sorting of countries

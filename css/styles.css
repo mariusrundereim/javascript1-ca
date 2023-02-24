@@ -178,12 +178,17 @@ img {
 
 /* Icons */
 
-.fa-arrow-up-a-z {
+.fa-arrow-up-a-z,
+.fa-arrow-down-a-z {
   font-size: 1.8rem;
   cursor: pointer;
 }
 
 .fa-arrow-up-a-z:hover {
+  color: var(--clr-1-primary);
+}
+
+.fa-arrow-down-a-z:hover {
   color: var(--clr-1-primary);
 }
 
