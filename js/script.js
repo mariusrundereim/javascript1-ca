@@ -150,7 +150,6 @@ buttonContinents.addEventListener("click", () => {
 });
 
 sortIcon.addEventListener("click", () => {
-  console.log("Clicked");
   countryApiSorted();
 });
 
