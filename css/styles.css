@@ -73,6 +73,23 @@ body {
   gap: 1rem;
 }
 
+/* Input Field - Reset */
+
+input,
+option,
+select {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+}
+
+input,
+option,
+select :focus {
+  outline: none;
+}
+
 /* Card */
 
 .card-prop {
@@ -99,12 +116,16 @@ body {
 
 .search-container {
   display: flex;
+  align-items: center;
   justify-content: center;
 
   /**/
   min-height: 15rem;
   padding: 2rem;
-  background: var(--clr-2-secondary);
+  border-radius: 20px;
+  width: min(100% - 1rem, 80rem);
+  margin-inline: auto;
+  background: linear-gradient(var(--clr-1-primary), var(--clr-3-primary));
 }
 
 img {
@@ -115,7 +136,6 @@ img {
   display: flex;
   justify-content: space-around;
   width: min(100% - 2rem, 50rem);
-  border: 1px solid black;
 }
 
 .country-head-container {
@@ -130,10 +150,11 @@ img {
 }
 
 .card-link {
+  font-size: 1.1rem;
   text-decoration: none;
   color: black;
   background: white;
-  border: 2px solid black;
+  border: 1px solid var(--clr-4-primary);
   border-radius: 5px;
   padding: 0.4rem 0.8rem;
   transition: 300ms ease;
@@ -141,7 +162,7 @@ img {
 
 .card-link:hover {
   color: white;
-  background: lightslategray;
+  background: var(--clr-1-primary);
 }
 
 /* Loader */
@@ -151,7 +172,7 @@ img {
 }
 
 .loading {
-  color: white;
+  color: var(--clr-1-primary);
   font-size: 4.5rem;
   animation: loadingspinner 3s infinite;
   visibility: hidden;
@@ -242,6 +263,27 @@ img {
 
 .detail-flag-img {
   width: min(100% - 1rem, 20rem);
+}
+
+.detail-item {
+  background: gray;
+  min-height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.api-result-focus {
+  color: var(--clr-3-secondary);
+}
+
+.map-container {
+  width: 100%;
+  height: 30rem;
+  border: var(--border-all);
+  border-radius: var(--border-normal);
+  overflow: hidden;
 }
 
 /* Handling errors */

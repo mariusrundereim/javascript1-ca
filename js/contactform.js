@@ -29,7 +29,7 @@ function check() {
     console.log("navn finnes ikke");
   }
 
-  if (subject.value.length < 4) {
+  if (subject.value.length <= 10) {
     messageContainer.innerHTML += createMessage(
       "warning",
       "Fill out a subject, Chuck Norris!"
@@ -55,7 +55,7 @@ function check() {
       "Please fill out a valid e-mail!"
     );
 
-    if (address.value.length < 25) {
+    if (address.value.length <= 25) {
       messageContainer.innerHTML += createMessage("warning", "Fill in address");
       console.log("Lengde:", address.value.length, false);
     } else {

@@ -29,20 +29,33 @@ detailCountry();
 
 function getDetails(data) {
   data.forEach((country) => {
+    console.log(country.maps.googleMaps);
     return (document.querySelector(".detail-section").innerHTML += `
-    <div class="details-section"><h2>${country.name.common}</h2><h3>${country.continents}</h3>
+    <div class="details-section">
+    <h2>${country.name.common}</h2>
+    <h3>${country.continents}</h3>
     <img class="detail-flag-img" src="${country.flags.png}"></img>
-    <p>Car on ${country.car.side} side</p>
-    <p>Population: ${country.population}</p></div>`);
+    <div class="detail-item">
+    <h3>People in this country drive on <span class="api-result-focus">${country.car.side}</span> side</h3>
+    </div>
+    <div class="detail-item">
+    <h3>Population: <span class="api-result-focus">${country.population}</span></h3>
+    </div>
+    <div class="detail-item"></div>
+    <div class="detail-item"></div>
+    <div class="map-container">
+    <iframe
+              src="${country.maps.googleMaps}"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    
+    
+    
+    </div>`);
   });
 }
-
-// function getTranslations(data) {
-//   data.forEach((country) => {
-//     console.log(country.translations);
-//     const translateLang = country.translations;
-//     for (let i = 0; i < translateLang.length; i++) {
-//       console.log(translateLang[i]);
-//     }
-//   });
-// }

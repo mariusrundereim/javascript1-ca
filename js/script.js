@@ -18,11 +18,13 @@ async function countryApi() {
     loader.classList.add("show");
     const response = await fetch(`https://restcountries.com/v3.1/${all}`); //https://restcountries.com/v3.1/
     const data = await response.json();
-    //console.log(data);
-    getAll(data);
-    setTimeout(() => {
+    if (response.status === 200) {
       loader.classList.remove("show");
-    }, 800);
+    }
+    getAll(data);
+    // setTimeout(() => {
+    //   loader.classList.remove("show");
+    // }, 800);
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;
@@ -31,6 +33,7 @@ async function countryApi() {
 
 function getAll(data) {
   data.forEach((country) => {
+    const linkCard = document.createElement("a");
     const container = document.createElement("div");
     container.classList.add("card-prop");
     const countryLink = document.createElement("a");
@@ -44,7 +47,9 @@ function getAll(data) {
     countryLink.textContent = `More details`;
     countryFlag.src = `${country.flags.png}`;
     countryCapital.textContent = `${country.capital}`;
+    linkCard.href = `details.html?name=${country.name.common}`;
     //
+    linkCard.append(countryFlag);
     container.append(heading, countryFlag, countryCapital, countryLink);
     document.querySelector(".container").append(container);
   });
