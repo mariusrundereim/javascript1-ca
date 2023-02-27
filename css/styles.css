@@ -90,6 +90,18 @@ select :focus {
   outline: none;
 }
 
+input {
+  border: 1px solid var(--clr-3-primary);
+  border-radius: 3px;
+  background: white;
+}
+
+input:focus {
+  border: 1px solid var(--clr-1-primary);
+  background: white;
+  filter: drop-shadow(0px 1px 3px var(--clr-3-secondary));
+}
+
 /* Card */
 
 .card-prop {
@@ -197,6 +209,24 @@ img {
   visibility: hidden;
 }
 
+/* Buttons */
+
+.submit-button {
+  background: var(--clr-3-primary);
+  border: 2px solid var(--clr-3-primary);
+}
+
+.submit-button:hover {
+  color: white;
+  background: var(--clr-1-primary);
+  border: 2px solid var(--clr-1-primary);
+}
+
+.btn-prop {
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+}
+
 /* Icons */
 
 .fa-arrow-up-a-z,
@@ -266,7 +296,8 @@ img {
 }
 
 .detail-item {
-  background: gray;
+  border: 1px solid var(--clr-3-secondary);
+  border-radius: 5px;
   min-height: 8rem;
   display: flex;
   justify-content: center;
@@ -275,7 +306,7 @@ img {
 }
 
 .api-result-focus {
-  color: var(--clr-3-secondary);
+  color: var(--clr-1-primary);
 }
 
 .map-container {
@@ -292,10 +323,11 @@ img {
   padding: 1rem;
   color: gray;
   border: 1px solid gray;
+  margin: 0.3rem;
 }
 
 .success {
-  color: black;
+  color: rgb(13, 34, 24);
   border-color: green;
   background: rgba(50, 205, 50, 0.3);
   border-radius: 8px;
@@ -308,7 +340,8 @@ img {
 }
 
 .warning {
-  color: orange;
+  color: rgb(202, 131, 0);
   border-color: darkorange;
   background: rgba(255, 166, 0, 0.3);
+  border-radius: 8px;
 }
