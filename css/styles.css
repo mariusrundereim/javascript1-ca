@@ -132,6 +132,7 @@ input:focus {
   justify-content: center;
 
   /**/
+  margin: 2rem;
   min-height: 15rem;
   padding: 2rem;
   border-radius: 20px;
@@ -211,9 +212,28 @@ img {
 
 /* Buttons */
 
+.button-name,
+.button-con {
+  background: var(--clr-2-primary);
+  border: 2px solid var(--clr-2-primary);
+  margin-top: 1rem;
+}
+
+.button-name:hover {
+  color: white;
+  background: var(--clr-4-primary);
+  border: 2px solid var(--clr-4-primary);
+}
+.button-con:hover {
+  color: white;
+  background: var(--clr-4-primary);
+  border: 2px solid var(--clr-4-primary);
+}
+
 .submit-button {
   background: var(--clr-3-primary);
   border: 2px solid var(--clr-3-primary);
+  margin-top: 1rem;
 }
 
 .submit-button:hover {
@@ -223,6 +243,7 @@ img {
 }
 
 .btn-prop {
+  display: block;
   padding: 0.3rem 0.6rem;
   border-radius: 3px;
 }
@@ -318,6 +339,21 @@ img {
 }
 
 /* Handling errors */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: min(100% - 1rem, 30rem);
+  margin-inline: auto;
+}
+
+.name-label,
+.subject-label,
+.email-label,
+.address-label {
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
 
 .message {
   padding: 1rem;
