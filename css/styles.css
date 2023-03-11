@@ -4,15 +4,11 @@
 }
 
 :root {
-  --clr-1-primary: rgb(104, 119, 255);
-  --clr-2-primary: rgb(243, 247, 255);
-  --clr-3-primary: rgb(195, 201, 255);
-  --clr-4-primary: rgb(52, 55, 86);
-
-  --clr-1-secondary: rgb(75, 92, 248);
-  --clr-2-secondary: rgb(229, 238, 255);
-  --clr-3-secondary: rgb(170, 179, 255);
-  --clr-4-secondary: rgb(33, 36, 63);
+  --clr-1-primary: rgb(255, 98, 98);
+  --clr-2-primary: rgb(160, 186, 223);
+  --clr-3-primary: rgb(121, 209, 204);
+  --clr-4-primary: rgb(86, 88, 92);
+  --clr-4-primary-trans: rgba(86, 88, 92, 0.4);
 
   --background: rgb(238, 238, 238);
 }
@@ -27,16 +23,11 @@ body {
 .top-header {
   background: white;
   display: flex;
-  justify-content: space-between;
+
+  flex-direction: column;
   align-items: center;
   padding: 1rem;
-}
-
-.page-title {
-  color: var(--clr-4-primary);
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: 600;
+  gap: 1rem;
 }
 
 /* Navigation */
@@ -91,15 +82,22 @@ select :focus {
 }
 
 input {
+  display: block;
   border: 1px solid var(--clr-3-primary);
   border-radius: 3px;
   background: white;
+  min-height: 32px;
 }
 
 input:focus {
   border: 1px solid var(--clr-1-primary);
   background: white;
   filter: drop-shadow(0px 1px 3px var(--clr-3-secondary));
+}
+
+select {
+  display: block;
+  min-height: 32px;
 }
 
 /* Card */
@@ -121,7 +119,7 @@ input:focus {
 
 .card-prop:hover {
   background: rgb(255, 255, 255);
-  filter: drop-shadow(0px 5px 2px var(--clr-1-primary));
+  filter: drop-shadow(0px 5px 2px var(--clr-4-primary-trans));
 }
 
 /* Search Countries */
@@ -130,15 +128,9 @@ input:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-
   /**/
-  margin: 2rem;
   min-height: 15rem;
-  padding: 2rem;
-  border-radius: 20px;
-  width: min(100% - 1rem, 80rem);
-  margin-inline: auto;
-  background: linear-gradient(var(--clr-1-primary), var(--clr-3-primary));
+  background: linear-gradient(#79d1cc, #79d1bc);
 }
 
 img {
@@ -175,7 +167,7 @@ img {
 
 .card-link:hover {
   color: white;
-  background: var(--clr-1-primary);
+  background: var(--clr-4-primary);
 }
 
 /* Loader */
@@ -214,20 +206,21 @@ img {
 
 .button-name,
 .button-con {
-  background: var(--clr-2-primary);
-  border: 2px solid var(--clr-2-primary);
+  color: white;
+  background: var(--clr-4-primary);
+  border: 2px solid var(--clr-4-primary);
   margin-top: 1rem;
 }
 
 .button-name:hover {
-  color: white;
-  background: var(--clr-4-primary);
-  border: 2px solid var(--clr-4-primary);
+  color: black;
+  background: var(--clr-1-primary);
+  border: 2px solid var(--clr-1-primary);
 }
 .button-con:hover {
-  color: white;
-  background: var(--clr-4-primary);
-  border: 2px solid var(--clr-4-primary);
+  color: black;
+  background: var(--clr-1-primary);
+  border: 2px solid var(--clr-1-primary);
 }
 
 .submit-button {
