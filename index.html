@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Country API</title>
+    <title>Globe Guide</title>
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/mediaquery.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,22 +21,29 @@
   </head>
   <body>
     <header class="top-header">
-      <a class="page-title" href="index.html">Countries</a>
+      <a href="index.html">
+        <img
+          class="page-logo"
+          src="./images/logo_globeguide.svg"
+          alt="Globe Guide logo"
+        />
+      </a>
       <nav class="primary-nav">
         <ul class="nav-list">
           <li class="nav-item">
-            <a class="nav-link" href="#">Translations</a>
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="contact.html">Contact</a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
         </ul>
       </nav>
     </header>
+
     <section class="search-container">
       <div class="search-wrapper">
         <div>
-          <label for="search-country">Country name:</label>
-          <input type="text" class="search-country" />
-          <button class="button-name" type="submit">Search</button>
+          <label for="search-name">Country name:</label>
+          <input type="text" class="search-name" />
+          <button class="button-name btn-prop" type="submit">Get result</button>
         </div>
         <div>
           <label for="continent">Continents:</label>
@@ -46,19 +53,29 @@
             <option value="asia">Asia</option>
             <option value="africa">Africa</option>
           </select>
-          <button class="button-con" id="continent" type="submit">
+          <button class="button-con btn-prop" id="continent" type="submit">
             Search
           </button>
-        </div>
-        <div>
-          <label for="population">Population:</label>
-          <input type="number" name="population" class="search-con" />
-          <button type="submit">Search</button>
         </div>
       </div>
     </section>
     <main class="wrapper">
-      <h2>Countries:</h2>
+      <div class="loader-wrapper">
+        <i class="fa-solid fa-earth-americas loading"></i>
+      </div>
+      <section class="sort-section">
+        <div>
+          <h2>Countries:</h2>
+        </div>
+        <div class="filter-section">
+          <div><p>Filter:</p></div>
+          <div>
+            <i class="fa-solid fa-arrow-up-a-z sort-icon"></i>
+            <i class="fa-solid fa-arrow-down-a-z sort-icon-down"></i>
+          </div>
+        </div>
+      </section>
+
       <section class="container"></section>
     </main>
   </body>

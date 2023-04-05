@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Details</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/mediaquery.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;400;500;800&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/edb75a7b65.js"
+      crossorigin="anonymous"
+    ></script>
     <script defer src="./js/detail.js"></script>
   </head>
   <body>
@@ -20,14 +25,16 @@
       <nav class="primary-nav">
         <ul class="nav-list">
           <li class="nav-item">
-            <a class="nav-link" href="#">Translations</a>
+            <a class="nav-link" href="contact.html">Contact</a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
         </ul>
       </nav>
     </header>
     <main class="wrapper">
-      <h3>Details:</h3>
+      <div class="loader-wrapper">
+        <i class="fa-solid fa-earth-americas loading show"></i>
+      </div>
+      <section class="detail-section"></section>
     </main>
   </body>
 </html>
