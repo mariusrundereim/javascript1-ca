@@ -22,9 +22,6 @@ async function countryApi() {
       loader.classList.remove("show");
     }
     getAll(data);
-    // setTimeout(() => {
-    //   loader.classList.remove("show");
-    // }, 800);
   } catch (error) {
     console.log("This is:", error);
     document.querySelector("body").innerHTML = `<h1>${error}</h1>`;

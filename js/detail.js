@@ -1,11 +1,10 @@
-const queryString = document.location.search; // querystring = ?name=Iceland&id=10
-const params = new URLSearchParams(queryString); // {"name": "Iceland", "id":"10"}
-const countryName = params.get("name"); //countryname = "Iceland"
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+const countryName = params.get("name");
 
 const loader = document.querySelector(".loading");
 
 const url = `https://restcountries.com/v3.1/name/${countryName}`;
-//console.log(url);
 
 async function detailCountry() {
   try {
@@ -29,7 +28,6 @@ detailCountry();
 
 function getDetails(data) {
   data.forEach((country) => {
-    console.log(country.maps.googleMaps);
     return (document.querySelector(".detail-section").innerHTML += `
     <div class="details-section">
     <h2>${country.name.common}</h2>
@@ -41,10 +39,6 @@ function getDetails(data) {
     <div class="detail-item">
     <h3>Population: <span class="api-result-focus">${country.population}</span></h3>
     </div>
-   
-    
-    
-    
     </div>`);
   });
 }
